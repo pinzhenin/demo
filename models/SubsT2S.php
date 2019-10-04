@@ -1,7 +1,7 @@
 <?php
 /**
  * Модель: Учитель оформляет подписку для группы учащихся (класса).
- * Используется для расчёта параметров подписки по частичным данным.
+ * Используется для расчёта параметров подписки по частичным данным: список учащихся + дата окончания
  */
 
 namespace app\models;
@@ -32,10 +32,8 @@ class SubsT2S extends Model {
 	public $durationAverage;			// длительность: в среднем на учащегося (только для ненулевых)
 	public $pricePerDayRegular;			// стоимость подписки за день
 	public $pricePerDayDiscount;		// стоимость подписки за день со скидкой
-//	public $pricePerDayFinal;			// стоимость подписки за день с учётом скидки
 	public $priceRegular;				// стоимость подписки за весь период
 	public $priceDiscount;				// стоимость подписки за весь период со скидкой
-//	public $priceFinal;					// стоимость подписки за весь период с учётом скидки
 	public $numberOfClasses;			// количество классов
 	public $numberOfStudents;			// количество учащихся
 	public $selectedToSubscribe;		// количество учащихся, выбранных для оформления подписки
@@ -309,7 +307,7 @@ class SubsT2S extends Model {
 	}
 
 	public function getPricePerDay() {
-		return $this->pricePerDay;
+		return $this->pricePerDayFinal;
 	}
 
 	public function getPrice() {

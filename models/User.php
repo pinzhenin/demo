@@ -1,4 +1,7 @@
 <?php
+/**
+ * Модель "Пользователь"
+ */
 
 namespace app\models;
 
